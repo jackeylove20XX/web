@@ -34,7 +34,18 @@ public class UserController {
             return Result.fail(Result.getError(-10));
         }
 
-        List<MyUserF> list = userMapper.ListByPage(object.getInteger("limit"), object.getInteger("offset"));
+        //default
+        int limit=5,offset=0;
+        if (object.getInteger("limit")!=null)
+        {
+            limit=object.getInteger("limit");
+        }
+        if (object.getInteger("offset")!=null)
+        {
+            offset=object.getInteger("offset");
+        }
+
+        List<MyUserF> list = userMapper.ListByPage(limit,offset);
         System.out.println(list);
         if (!list.isEmpty()) {
             return Result.success(list);
