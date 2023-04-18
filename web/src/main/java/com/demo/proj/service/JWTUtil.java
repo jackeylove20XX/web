@@ -41,10 +41,17 @@ public class JWTUtil {
                 //可以将基本信息放到claims中
                 .withClaim("id", user.getID())//userId
                 .withClaim("userName", user.getUserName())//userName
-                .withClaim("password", user.getPassWord())//password
+//                .withClaim("password", user.getPassWord())//password
                 .withExpiresAt(expireDate) //超时设置,设置过期的日期
                 .withIssuedAt(new Date()) //签发时间
                 .sign(Algorithm.HMAC256(SECRET)); //SECRET加密
+
+        System.out.println(token);
+        DecodedJWT jwt = null;
+        JWTVerifier verifier = JWT.require(Algorithm.HMAC256(SECRET)).build();
+        jwt = ((JWTVerifier) verifier).verify(token);
+        System.out.println(jwt.getClaim("属性").asString());
+            //decodedJWT.getClaim("属性").asString()  获取负载中的属性值
         return token;
     }
 
@@ -57,8 +64,6 @@ public class JWTUtil {
         try {
             JWTVerifier verifier = JWT.require(Algorithm.HMAC256(SECRET)).build();
             jwt = ((JWTVerifier) verifier).verify(token);
-
-            //decodedJWT.getClaim("属性").asString()  获取负载中的属性值
 
         } catch (Exception e) {
             logger.error(e.getMessage());
