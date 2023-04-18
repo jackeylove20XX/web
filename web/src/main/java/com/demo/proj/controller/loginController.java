@@ -36,6 +36,7 @@ public class loginController {
         }
         else
         {
+//            System.out.printf("%d%s",local.getID(),local.getUserName());
             //cookie
             response.addCookie(new Cookie("username",object.getString("username")));
             //jwt token
