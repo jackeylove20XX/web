@@ -17,7 +17,7 @@ public class Result {
             -10,"token解码异常");
 
     private static Map errorMap2 = Map.of(-11, "请求过于频繁，请稍后再试", -12, "必须填写用户名"
-                    ,-13,"必须填写密码",-14,"数据已经发生变化，请重新请求");
+                    ,-13,"必须填写密码",-14,"数据已经发生变化，请重新请求",-15,"Not login");
 
     public static String getError(int code) {
         if (errorMap.get(code)!=null) {

@@ -26,7 +26,7 @@ public class JWTUtil {
     /**
      * 过期时间
      **/
-    private static final long EXPIRATION = 10L;//单位为秒 1800
+    private static final long EXPIRATION = 180L;//单位为秒 1800
 
     /**
      * 生成用户token,设置token超时时间
