@@ -30,9 +30,9 @@ public class UserController {
     @RequestMapping(value = "/user/listpage")
     public Result listpage(@RequestBody JSONObject object) {
         Result result = JWTUtil.verifyToken(object.getString("token"));
-        if (result.getCode() == -1) {
-            return Result.fail(Result.getError(-10));
-        }
+//        if (result.getCode() == -1) {
+//            return Result.fail(Result.getError(-10));
+//        }
 
         //default
         int limit=5,offset=0;
@@ -58,9 +58,9 @@ public class UserController {
     @PostMapping(value = "/user/delete")
     public Result delete_id(@RequestBody JSONObject object) {
         Result result = JWTUtil.verifyToken(object.getString("token"));
-        if (result.getCode() == -1) {
-            return Result.fail(Result.getError(-10));
-        }
+//        if (result.getCode() == -1) {
+//            return Result.fail(Result.getError(-10));
+//        }
         int flag = 0;
         if (object.getString("id") != null) {
             flag = userMapper.DeleteID(object.getInteger("id"));
@@ -85,9 +85,9 @@ public class UserController {
     @PostMapping(value = "/user/addUser")
     public Result add_post(@RequestBody JSONObject object) {
         Result result = JWTUtil.verifyToken(object.getString("token"));
-        if (result.getCode() == -1) {
-            return Result.fail(Result.getError(-10));
-        }
+//        if (result.getCode() == -1) {
+//            return Result.fail(Result.getError(-10));
+//        }
 
         result = UserInfoCheck.Check_all(object);
         if(result.getCode()==-1)
@@ -118,9 +118,9 @@ public class UserController {
     @PostMapping(value = "/user/update")
     public Result update(@RequestBody JSONObject object) {
         Result result = JWTUtil.verifyToken(object.getString("token"));
-        if (result.getCode() == -1) {
-            return Result.fail(Result.getError(-10));
-        }
+//        if (result.getCode() == -1) {
+//            return Result.fail(Result.getError(-10));
+//        }
 
         //check gender
         result = UserInfoCheck.Check_all(object);

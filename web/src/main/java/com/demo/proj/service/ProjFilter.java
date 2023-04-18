@@ -40,12 +40,13 @@ public class ProjFilter implements jakarta.servlet.Filter {
                 return;
             }
 
+
             Result result = JWTUtil.verifyToken(jwt);
+            log.info(jwt);
             if (result.getCode() == -1) {
                 Result error= Result.fail(Result.getError(-10));
                 String Fail=JSONObject.toJSONString(error);
                 response.getWriter().write(Fail);
-
                 return;
                 }
             }
