@@ -50,7 +50,7 @@ public interface UserMapper {
             "<script>",
                     "INSERT INTO user",
                     "(username,name,gender,password,updateTime,createTime,version) ",
-                    " values (#{UserName},#{Name},#{GenDer},#{PassWord},now(),now(),#{version)",
+                    " values (#{UserName},#{Name},#{GenDer},#{PassWord},now(),now(),#{version})",
                     "</script>"
         })
     public  int AddUserWithVersion(MyUserF user);

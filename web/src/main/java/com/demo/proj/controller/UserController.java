@@ -29,10 +29,11 @@ public class UserController {
     @Transactional(rollbackFor = Exception.class)//开启aop事务管理
     @RequestMapping(value = "/user/listpage")
     public Result listpage(@RequestBody JSONObject object) {
-        Result result = JWTUtil.verifyToken(object.getString("token"));
+//        Result result = JWTUtil.verifyToken(object.getString("token"));
 //        if (result.getCode() == -1) {
 //            return Result.fail(Result.getError(-10));
 //        }
+
 
         //default
         int limit=5,offset=0;
@@ -57,7 +58,7 @@ public class UserController {
     @Transactional(rollbackFor = Exception.class)//开启aop事务管理
     @PostMapping(value = "/user/delete")
     public Result delete_id(@RequestBody JSONObject object) {
-        Result result = JWTUtil.verifyToken(object.getString("token"));
+//        Result result = JWTUtil.verifyToken(object.getString("token"));
 //        if (result.getCode() == -1) {
 //            return Result.fail(Result.getError(-10));
 //        }
@@ -84,12 +85,12 @@ public class UserController {
     @Transactional(rollbackFor = Exception.class)//开启aop事务管理
     @PostMapping(value = "/user/addUser")
     public Result add_post(@RequestBody JSONObject object) {
-        Result result = JWTUtil.verifyToken(object.getString("token"));
+//        Result result = JWTUtil.verifyToken(object.getString("token"));
 //        if (result.getCode() == -1) {
 //            return Result.fail(Result.getError(-10));
 //        }
 
-        result = UserInfoCheck.Check_all(object);
+        Result result = UserInfoCheck.Check_all(object);
         if(result.getCode()==-1)
         {
             return result;
@@ -117,13 +118,13 @@ public class UserController {
     @Transactional(rollbackFor = Exception.class)//开启aop事务管理
     @PostMapping(value = "/user/update")
     public Result update(@RequestBody JSONObject object) {
-        Result result = JWTUtil.verifyToken(object.getString("token"));
+//        Result result = JWTUtil.verifyToken(object.getString("token"));
 //        if (result.getCode() == -1) {
 //            return Result.fail(Result.getError(-10));
 //        }
 
         //check gender
-        result = UserInfoCheck.Check_all(object);
+        Result result = UserInfoCheck.Check_all(object);
         if(result.getCode()==-1)
         {
             return result;

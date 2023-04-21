@@ -5,6 +5,7 @@ import jakarta.servlet.*;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.scheduling.annotation.Async;
 import org.springframework.util.StringUtils;
 
 import java.io.IOException;
@@ -25,7 +26,7 @@ public class ProjFilter implements jakarta.servlet.Filter {
         HttpServletResponse response = (HttpServletResponse) servletResponse;
 
         String url = request.getRequestURL().toString();
-        System.out.println(url);
+//        System.out.println(url);
 
         if (url.contains("login") || url.contains("register")) {
             //no action
