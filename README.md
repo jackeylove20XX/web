@@ -1,6 +1,6 @@
 # SpringBoot-Web
 
-having done:  
+Having done:  
 1,main body (MVC)  
 2,Filter and JWTtoken verification  
 3,Interface controller（token pool）  
