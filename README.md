@@ -1,4 +1,4 @@
-# SpringBoot-Web
+# SpringBoot-Web micro-server
 
 Having done:  
 1,main body (MVC)  
