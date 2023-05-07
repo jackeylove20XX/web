@@ -1,25 +1,18 @@
 package com.demo.proj.controller;
 
-import ch.qos.logback.core.joran.spi.ElementSelector;
 import com.alibaba.fastjson.JSONObject;
 import com.demo.proj.mapper.UserMapper;
 import com.demo.proj.obj.MyUserF;
-import com.demo.proj.service.*;
-import jakarta.servlet.http.HttpServletRequest;
-import netscape.javascript.JSObject;
-import org.apache.ibatis.javassist.bytecode.analysis.ControlFlow;
+import com.demo.proj.service.Result;
+import com.demo.proj.service.UserInfoCheck;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.cglib.core.Block;
 import org.springframework.transaction.annotation.Transactional;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
 
-import java.time.LocalDateTime;
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
-import java.util.concurrent.ConcurrentHashMap;
-
-import static java.lang.Thread.sleep;
 
 @RestController
 public class UserController {
@@ -82,7 +75,7 @@ public class UserController {
         }
     }
 
-    @Transactional(rollbackFor = Exception.class)//开启aop事务管理
+    @Transactional(rollbackFor = Exception.class,timeout = 60)//开启aop事务管理
     @PostMapping(value = "/user/addUser")
     public Result add_post(@RequestBody JSONObject object) {
 //        Result result = JWTUtil.verifyToken(object.getString("token"));
@@ -115,7 +108,7 @@ public class UserController {
         }
     }
 
-    @Transactional(rollbackFor = Exception.class)//开启aop事务管理
+    @Transactional(rollbackFor = Exception.class,timeout = 60)//开启aop事务管理
     @PostMapping(value = "/user/update")
     public Result update(@RequestBody JSONObject object) {
 //        Result result = JWTUtil.verifyToken(object.getString("token"));
