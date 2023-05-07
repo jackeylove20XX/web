@@ -1,6 +1,6 @@
 # SpringBoot-Web micro-server
 
-Having done:  
+<!-- Having done:  
 1,main body (MVC)  
 2,Filter and JWTtoken verification  
 3,Interface controller（token pool）  
@@ -14,3 +14,4 @@ To do:
 3,Redis cache  
 4,main and slave database  
 5,More (Vue?)  
+ -->
