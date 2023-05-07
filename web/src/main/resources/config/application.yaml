@@ -1,0 +1,6 @@
+server:
+  address: 222.201.191.51
+  port: 8088
+spring:
+  profiles:
+    active: native
